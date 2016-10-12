@@ -38,4 +38,14 @@ WORKDIR /
 #RUN cp -r /var/tmp/builds/root/root-6.06.08 /usr/local
 RUN rm -rf /var/tmp/builds
 
-ENTRYPOINT /bin/bash
+ENV G4LEVELGAMMADATA=/usr/local/share/Geant4-10.1.1/data/PhotonEvaporation3.1
+ENV G4NEUTRONXSDATA=/usr/local/share/Geant4-10.1.1/data/G4NEUTRONXS1.4
+ENV G4LEDATA=/usr/local/share/Geant4-10.1.1/data/G4EMLOW6.41
+ENV G4NEUTRONHPDATA=/usr/local/share/Geant4-10.1.1/data/G4NDL4.5
+ENV G4RADIOACTIVEDATA=/usr/local/share/Geant4-10.1.1/data/RadioactiveDecay4.2
+ENV G4ABLADATA=/usr/local/share/Geant4-10.1.1/data/G4ABLA3.0
+ENV G4PIIDATA=/usr/local/share/Geant4-10.1.1/data/G4PII1.3
+ENV G4SAIDXSDATA=/usr/local/share/Geant4-10.1.1/data/G4SAIDDATA1.1
+ENV G4REALSURFACEDATA=/usr/local/share/Geant4-10.1.1/data/RealSurface1.0
+WORKDIR /workspace
+ENTRYPOINT ["/usr/local/bin/bdsim"]
